@@ -1,7 +1,6 @@
 import 'react-toastify/dist/ReactToastify.css';
 import './app.scss';
 import 'app/config/dayjs.ts';
-
 import React, { useEffect } from 'react';
 import { Card } from 'reactstrap';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -22,11 +21,6 @@ const baseHref = document.querySelector('base').getAttribute('href').replace(/\/
 export const App = () => {
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(getSession());
-    dispatch(getProfile());
-  }, []);
-
   const isAuthenticated = useAppSelector(state => state.authentication.isAuthenticated);
   const isAdmin = useAppSelector(state => hasAnyAuthority(state.authentication.account.authorities, [AUTHORITIES.ADMIN]));
   const ribbonEnv = useAppSelector(state => state.applicationProfile.ribbonEnv);
@@ -36,24 +30,15 @@ export const App = () => {
   const paddingTop = '60px';
   return (
     <Router basename={baseHref}>
-      <div className="app-container" style={{ paddingTop }}>
+      <div className="app-container">
         <ToastContainer position={toast.POSITION.TOP_LEFT} className="toastify-container" toastClassName="toastify-toast" />
-        <ErrorBoundary>
-          <Header
-            isAuthenticated={isAuthenticated}
-            isAdmin={isAdmin}
-            ribbonEnv={ribbonEnv}
-            isInProduction={isInProduction}
-            isOpenAPIEnabled={isOpenAPIEnabled}
-          />
-        </ErrorBoundary>
+
         <div className="container-fluid view-container" id="app-view-container">
           <Card className="jh-card">
             <ErrorBoundary>
               <AppRoutes />
             </ErrorBoundary>
           </Card>
-          <Footer />
         </div>
       </div>
     </Router>
@@ -61,3 +46,28 @@ export const App = () => {
 };
 
 export default App;
+
+/*
+
+/* <ErrorBoundary>
+      <Header
+        isAuthenticated={isAuthenticated}
+        isAdmin={isAdmin}
+        ribbonEnv={ribbonEnv}
+        isInProduction={isInProduction}
+        isOpenAPIEnabled={isOpenAPIEnabled}
+      />
+    </ErrorBoundary> */
+
+// <Footer />
+
+/*
+
+ const dispatch = useAppDispatch();
+
+useEffect(() => {
+    dispatch(getSession());
+    dispatch(getProfile());
+}, []);
+
+*/

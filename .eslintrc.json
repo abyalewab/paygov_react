@@ -47,11 +47,13 @@
     "@typescript-eslint/ban-types": [
       "error",
       {
+        "extendDefaults": true,
         "types": {
-          "Object": "Use {} instead."
+          "{}": false
         }
       }
     ],
+    "@typescript-eslint/no-var-requires": 0,
     "@typescript-eslint/interface-name-prefix": "off",
     "@typescript-eslint/no-empty-function": "off",
     "@typescript-eslint/unbound-method": "off",
@@ -62,7 +64,6 @@
     "no-labels": "error",
     "no-caller": "error",
     "no-bitwise": "error",
-    "no-console": ["error", { "allow": ["warn", "error"] }],
     "no-new-wrappers": "error",
     "no-eval": "error",
     "no-new": "error",

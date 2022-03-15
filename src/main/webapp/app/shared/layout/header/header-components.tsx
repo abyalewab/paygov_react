@@ -13,7 +13,7 @@ export const BrandIcon = props => (
 export const Brand = () => (
   <NavbarBrand tag={Link} to="/" className="brand-logo">
     <BrandIcon />
-    <span className="brand-title">Paygov_R</span>
+    <span className="brand-title">PayGovR</span>
     <span className="navbar-version">{VERSION}</span>
   </NavbarBrand>
 );
@@ -23,6 +23,15 @@ export const Home = () => (
     <NavLink tag={Link} to="/" className="d-flex align-items-center">
       <FontAwesomeIcon icon="home" />
       <span>Home</span>
+    </NavLink>
+  </NavItem>
+);
+
+export const PayGov = () => (
+  <NavItem>
+    <NavLink tag={Link} to="/paygovr" className="d-flex align-items-center">
+      <FontAwesomeIcon icon="th-list" />
+      <span>PayGov</span>
     </NavLink>
   </NavItem>
 );

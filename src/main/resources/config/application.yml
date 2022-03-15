@@ -67,6 +67,8 @@ management:
 spring:
   application:
     name: Paygov_R
+    apiKeyId: c8e19539478a1b05
+    secretApiKey: IOqNecY6Wc/1SHa7po3/+AKWn1klsHibb6z7Fwls0FI=
   profiles:
     # The commented value for `active` can be replaced with valid Spring profiles to load.
     # Otherwise, it will be filled in by gradle when building the JAR file
